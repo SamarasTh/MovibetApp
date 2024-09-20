@@ -1,18 +1,43 @@
-
-header{
+header {
     width: 100vw;
     height: 80px;
-
     background: linear-gradient(to right, rgb(32, 39, 53), rgb(50, 60, 70), rgb(0, 143, 147));
-    .search-container {
-        display:flex;
-        justify-content: start;
-        padding:12px 12px 0 12px;
 
-        mat-form-field{
+    .search-container {
+        display: flex;
+        justify-content: start;
+        padding: 12px 12px 0 12px;
+
+        mat-form-field {
             min-width: 100%;
-    
+
         }
     }
 }
-    
+
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    .movie-card {
+        margin: 10px;
+        width: 350px;
+        height: 570px;
+
+        mat-card img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        h3,
+        p {
+            color: wheat;
+        }
+    }
+
+
+}

@@ -17,14 +17,28 @@
           <mat-icon>close</mat-icon>
         </button>
 
-        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">.
+        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">
           <mat-icon>search</mat-icon>
         </button>
 
         <mat-error *ngIf="searchInput.errors?.['minlength']">Minimum length is {{searchInput.errors?.['minlength'].requiredLength}} characters.</mat-error>
         <mat-error *ngIf="searchInput.errors?.['pattern']">Invalid characters. Only alphanumeric characters allowed.</mat-error>
+        <mat-error *ngIf="movies.length === 0">No movie found sorry.</mat-error>
     </mat-form-field>
   </div>
+
 </header>
+
+  <ng-container *ngIf="movies.length > 0">
+    <div class="movie-grid">
+      <mat-card *ngFor="let movie of movies" class="movie-card" (click)="toggleMovieDetails(movie.id)">
+        <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
+        <mat-card-content>
+          <h3>{{ movie.title }}</h3>
+          <p>Ratings: {{ movie.vote_average }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
   
   
