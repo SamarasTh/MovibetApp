@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MovieService } from '../../service/movie.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-search',
@@ -17,6 +18,7 @@ import { MovieService } from '../../service/movie.service';
     MatButtonModule,
     MatCardModule,
     MatPaginatorModule,
+    MatIconModule,
     FormsModule,
   ]
   ,

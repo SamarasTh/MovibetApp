@@ -1,17 +1,30 @@
-<div class="search-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Search movies</mat-label>
-    <input 
+<header>
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Feeling like watching something?</mat-label>
+      <input 
       matInput 
       [(ngModel)]="searchQuery" 
       name="search" 
-      placeholder="Enter search term" 
+      placeholder="Search for a movie..." 
       required 
       minlength="3" 
       pattern="[a-zA-Z0-9 ]*" 
       #searchInput="ngModel"
-    />
-    <button mat-raised-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">Search</button>
-  </mat-form-field>
+      />
 
- 
+        <button *ngIf="searchQuery" matIconPrefix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
+          <mat-icon>close</mat-icon>
+        </button>
+
+        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">.
+          <mat-icon>search</mat-icon>
+        </button>
+
+        <mat-error *ngIf="searchInput.errors?.['minlength']">Minimum length is {{searchInput.errors?.['minlength'].requiredLength}} characters.</mat-error>
+        <mat-error *ngIf="searchInput.errors?.['pattern']">Invalid characters. Only alphanumeric characters allowed.</mat-error>
+    </mat-form-field>
+  </div>
+</header>
+  
+  
