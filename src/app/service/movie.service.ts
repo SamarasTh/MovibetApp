@@ -15,4 +15,9 @@ export class MovieService {
     searchMovies(query: string): Observable<any> {
         return this.http.get(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${query}`);
     }
+
+    getImageUrl(posterPath: string): string {
+        return `https://image.tmdb.org/t/p/w500${posterPath}`;
+    }
+
 }
