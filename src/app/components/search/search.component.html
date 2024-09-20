@@ -1,1 +1,17 @@
-<p>search works!</p>
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search movies</mat-label>
+    <input 
+      matInput 
+      [(ngModel)]="searchQuery" 
+      name="search" 
+      placeholder="Enter search term" 
+      required 
+      minlength="3" 
+      pattern="[a-zA-Z0-9 ]*" 
+      #searchInput="ngModel"
+    />
+    <button mat-raised-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">Search</button>
+  </mat-form-field>
+
+ 
