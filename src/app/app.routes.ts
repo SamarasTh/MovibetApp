@@ -6,12 +6,12 @@ export const routes: Routes = [
         path: '',
         redirectTo: (urlInfo) => {
             console.log(urlInfo);
-            return '/home'
+            return '/search'
         },
         pathMatch: 'full',
     },
     {
-        path: 'home',
+        path: 'search',
         component: SearchComponent,
-    }
+    },
 ];
