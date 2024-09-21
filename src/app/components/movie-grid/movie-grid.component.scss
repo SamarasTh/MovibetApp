@@ -1,0 +1,26 @@
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    .movie-card {
+        margin: 10px;
+        width: 350px;
+        height: 570px;
+
+        mat-card img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        h3,
+        p {
+            color: wheat;
+        }
+    }
+
+
+}
