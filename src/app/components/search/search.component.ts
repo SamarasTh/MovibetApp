@@ -1,13 +1,14 @@
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MovieService } from '../../service/movie.service';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+
+import { MovieGridComponent } from '../movie-grid/movie-grid.component';
+import { MovieService } from '../../service/movie.service';
 
 @Component({
   selector: 'app-search',
@@ -17,9 +18,9 @@ import { Subject, takeUntil } from 'rxjs';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatPaginatorModule,
     MatIconModule,
     FormsModule,
+    MovieGridComponent
   ]
   ,
   templateUrl: './search.component.html',
@@ -35,7 +36,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-this.searchMovies('love');
+    this.searchMovies('love');
   }
 
   onSearch() {
@@ -54,12 +55,6 @@ this.searchMovies('love');
       });
   }
 
-  getImageUrl(posterPath: string) {
-    return this.movieService.getImageUrl(posterPath);
-  }
-
-  toggleMovieDetails(movieId: number): void {
-  }
 
   ngOnDestroy() {
     this.destroy$.next();
