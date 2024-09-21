@@ -15,4 +15,37 @@ header {
     }
 }
 
-.movies-container {}
+main {
+    height: 100%;
+    margin: 24px;
+
+    .movies-container {
+        padding: 24px;
+    }
+
+    .no-results--container {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+    }
+
+    .no-results {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .img-not-found {
+        background-image: url('https://image.tmdb.org/t/p/w500/vbLxDKfo8fYC8ISKKrJczNbGKLP.jpg');
+        height: 256px;
+        width: 233px;
+        background-size: cover;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+
+}

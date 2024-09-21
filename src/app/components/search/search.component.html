@@ -10,26 +10,44 @@
       required 
       minlength="3" 
       pattern="[a-zA-Z0-9 ]*" 
+      (keyup.enter)="onSearch(searchQuery)"
       #searchInput="ngModel"
       />
 
-        <button *ngIf="searchQuery" matIconPrefix mat-icon-button aria-label="Clear" (click)="searchQuery=''">
+        <button *ngIf="searchQuery" matIconPrefix mat-icon-button aria-label="Clear" (click)="resetSearch()">
           <mat-icon>close</mat-icon>
         </button>
 
-        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch()" [disabled]="searchInput.invalid">
+        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch(searchQuery)" [disabled]="searchInput.invalid">
           <mat-icon>search</mat-icon>
         </button>
 
         <mat-error *ngIf="searchInput.errors?.['minlength']">Minimum length is {{searchInput.errors?.['minlength'].requiredLength}} characters.</mat-error>
         <mat-error *ngIf="searchInput.errors?.['pattern']">Invalid characters. Only alphanumeric characters allowed.</mat-error>
-        <mat-error *ngIf="movies.length === 0">No movie found sorry.</mat-error>
     </mat-form-field>
   </div>
 
 </header>
-<section class="movies-container">
-  <app-movie-grid [movies]="movies"></app-movie-grid>
-</section>
+
+<main>
+
+  <ng-container *ngIf="searchPerformed">
+    <ng-container *ngIf="movies && movies.length > 0; else nothingFound">
+      <section class="movies-container">
+        <app-movie-grid [moviesApiResponse]="moviesApiResponse" [searchQuery]="searchQuery"></app-movie-grid>
+      </section>
+    </ng-container>
+  </ng-container>
+  
+  <ng-template #nothingFound>
+    <div class="no-results--container">
+
+      <div class="no-results ">
+        <div class="animate__animated animate__bounceInDown img-not-found "></div>
+        <h3 class="animate__animated animate__bounceInUp">Sorry, nothing found...</h3>
+      </div>
+    </div>
+  </ng-template>
+</main>
   
   
