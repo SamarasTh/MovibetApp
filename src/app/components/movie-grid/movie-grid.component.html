@@ -1,4 +1,7 @@
 <ng-container *ngIf="movies?.length && movies.length > 0">
+
+        <mat-paginator [length]="totalResults"  (page)="onPageChange($event)"></mat-paginator>
+
     <div class="movie-grid">
         <mat-card *ngFor="let movie of movies" class="movie-card" (click)="toggleMovieDetails(movie.id)">
             <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
@@ -9,5 +12,4 @@
         </mat-card>
     </div>
 
-    <mat-paginator [length]="totalResults" [pageSize]="20" (page)="onPageChange($event)"></mat-paginator>
 </ng-container>

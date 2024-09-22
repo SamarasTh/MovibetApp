@@ -5,11 +5,11 @@ header {
 
     .search-container {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         padding: 12px 12px 0 12px;
 
         mat-form-field {
-            min-width: 100%;
+            min-width: 25%;
 
         }
     }
