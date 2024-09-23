@@ -1,1 +1,37 @@
-<p>movie-details-dialog works!</p>
+<div mat-dialog-content class="movie-details-container">
+    <div class="movie-header">
+        <img [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" class="movie-poster" />
+        <h2>{{ movie.title }}</h2>
+    </div>
+
+    <div class="movie-info">
+        <p class="movie-overview">{{ movie.overview }}</p>
+
+        <div class="movie-meta">
+            <div>
+                Budget: <strong>{{ movie.budget }}</strong> 
+            </div>
+            <div>
+                Revenue: <strong>{{ movie.revenue }}</strong> 
+            </div>
+            <div>
+              Release Date: <strong> {{ movie.release_date }}</strong> 
+            </div>
+        </div>
+
+        <div class="movie-ratings">
+            <div>
+                Vote Average: <strong>{{ movie.vote_average | keepOneDigit}} / 10</strong> 
+            </div>
+            <div>
+                Vote Count: <strong>{{ movie.vote_count }}</strong> 
+            </div>
+        </div>
+
+        <div class="spoken-languages">
+            <strong>Spoken Languages:</strong>
+            <span>
+                {{ movie.spoken_languages }},</span>
+        </div>
+    </div>
+</div>
