@@ -2,7 +2,7 @@ import { MatDialogConfig } from "@angular/material/dialog";
 
 
 export const mvbtDesktopDialogConfig = {
-    panelClass: ['mvbt-dialog', 'animate__animated', ' animate_slideInUp', 'animate_faster'],
+    panelClass: ['mvbt-dialog'],
     maxWidth: '100%',
 } as MatDialogConfig;
 
@@ -12,7 +12,7 @@ export const mvbtMobileDialogConfig = {
 } as MatDialogConfig;
 
 
-export interface dialogData {
+export interface DialogData {
     title: string,
     overview: string,
     poster_path: string,
