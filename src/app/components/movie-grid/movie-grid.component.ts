@@ -7,7 +7,7 @@ import { MovieService } from '../../service/movie.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { Movie, MovieApiResponse } from '../../model/movie.model';
 import { DialogService } from '../../service/dialog.service';
-import { KeepOneDigitPipe } from '../pipe/keepOneDigit.pipe';
+import { KeepOneDigitPipe } from '../../pipe/keepOneDigit.pipe';
 
 @Component({
   selector: 'app-movie-grid',

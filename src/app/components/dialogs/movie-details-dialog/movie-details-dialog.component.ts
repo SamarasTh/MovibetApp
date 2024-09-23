@@ -2,7 +2,7 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { KeepOneDigitPipe } from '../../pipe/keepOneDigit.pipe';
+import { KeepOneDigitPipe } from '../../../pipe/keepOneDigit.pipe';
 import { MovieService } from '../../../service/movie.service';
 import { DialogData } from '../../../model/dialog.model';
 
@@ -30,5 +30,9 @@ export class MovieDetailsDialogComponent {
 
   getImageUrl(posterPath: string) {
     return this.movieService.getImageUrl(posterPath);
+  }
+
+  onPrimaryClick() {
+    this.dialogRef.close();
   }
 }
