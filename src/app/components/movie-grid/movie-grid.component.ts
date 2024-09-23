@@ -1,10 +1,13 @@
+import { Subject, takeUntil } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { MovieService } from '../../service/movie.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { Movie, MovieApiResponse } from '../../model/movie.model';
-import { Subject, takeUntil } from 'rxjs';
+import { DialogService } from '../../service/dialog.service';
+import { KeepOneDigitPipe } from '../pipe/keepOneDigit.pipe';
 
 @Component({
   selector: 'app-movie-grid',
@@ -12,7 +15,8 @@ import { Subject, takeUntil } from 'rxjs';
   imports: [
     CommonModule,
     MatCardModule,
-    MatPaginatorModule
+    KeepOneDigitPipe,
+    MatPaginatorModule,
   ]
   ,
   templateUrl: './movie-grid.component.html',
@@ -28,7 +32,9 @@ export class MovieGridComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    private dialogService: DialogService) { }
 
   ngOnInit() {
 
@@ -51,6 +57,7 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   }
 
   toggleMovieDetails(movieId: number): void {
+    this.dialogService.openMovieDetailsDialog(movieId)
   }
 
   fetchNextPage() {
@@ -73,8 +80,8 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(); 
-    this.destroy$.complete(); 
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
 
