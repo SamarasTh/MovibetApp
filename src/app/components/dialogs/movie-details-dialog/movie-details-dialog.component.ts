@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import { KeepOneDigitPipe } from '../../../pipe/keepOneDigit.pipe';
 import { MovieService } from '../../../service/movie.service';
 import { DialogData } from '../../../model/dialog.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-movie-details-dialog',
   standalone: true,
   imports: [
     CommonModule,
+    MatIconModule,
     MatDialogModule,
     KeepOneDigitPipe
   ],

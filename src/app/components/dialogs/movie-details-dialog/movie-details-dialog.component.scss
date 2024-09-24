@@ -1,3 +1,22 @@
+.btn-close {
+    display: inline-block;
+    position: absolute;
+    right: 28px;
+    top: 20px;
+    border-radius: 50%;
+    border: white 1px solid;
+    cursor: pointer;
+    outline: none;
+
+    mat-icon {
+        font-size: 24px;
+        font-weight: bolder;
+        color: grey;
+    }
+
+}
+
+
 .movie-details-container {
     display: flex;
     flex-direction: column;

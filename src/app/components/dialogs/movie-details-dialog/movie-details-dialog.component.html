@@ -1,7 +1,13 @@
+<button class="btn-close" matIconPrefix mat-icon-button aria-label="Clear" (click)="onPrimaryClick()">
+    <mat-icon>close</mat-icon>
+</button>
+
 <div mat-dialog-content class="movie-details-container">
+
     <div class="movie-header">
         <img [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" class="movie-poster" />
         <h2>{{ movie.title }}</h2>
+
     </div>
 
     <div class="movie-info">
@@ -9,22 +15,22 @@
 
         <div class="movie-meta">
             <div>
-                Budget: <strong>{{ movie.budget }}</strong> 
+                Budget: <strong>{{ movie.budget }}</strong>
             </div>
             <div>
-                Revenue: <strong>{{ movie.revenue }}</strong> 
+                Revenue: <strong>{{ movie.revenue }}</strong>
             </div>
             <div>
-              Release Date: <strong> {{ movie.release_date }}</strong> 
+                Release Date: <strong> {{ movie.release_date }}</strong>
             </div>
         </div>
 
         <div class="movie-ratings">
             <div>
-                Vote Average: <strong>{{ movie.vote_average | keepOneDigit}} / 10</strong> 
+                Vote Average: <strong>{{ movie.vote_average | keepOneDigit}} / 10</strong>
             </div>
             <div>
-                Vote Count: <strong>{{ movie.vote_count }}</strong> 
+                Vote Count: <strong>{{ movie.vote_count }}</strong>
             </div>
         </div>
 
