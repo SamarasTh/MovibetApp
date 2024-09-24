@@ -8,9 +8,13 @@
 
     .movie-card {
         margin: 10px;
-        width: 350px;
-        height: 570px;
+        width: 300px;
+        height: 500px;
 
+        @media only screen and (max-width: 820px) {
+            width: 250px;
+            height: 450px;
+        }
         mat-card img {
             width: 100%;
             object-fit: cover;
@@ -23,8 +27,6 @@
             color: wheat;
         }
     }
-
-
 }
 
 ::ng-deep mat-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container {
