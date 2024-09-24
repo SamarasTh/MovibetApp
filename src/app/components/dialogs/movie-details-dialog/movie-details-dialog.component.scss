@@ -104,3 +104,32 @@ strong {
         height: 150px;
     }
 }
+
+.rating-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-container label {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.rating-container input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rating-container button {
+    background-color: #0a74da;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.rating-container button:hover {
+    background-color: #055ba3;
+}

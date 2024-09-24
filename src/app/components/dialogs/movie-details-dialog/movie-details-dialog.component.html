@@ -40,4 +40,11 @@
                 {{ movie.spoken_languages }},</span>
         </div>
     </div>
+
+    <div class="rating-container">
+        <label for="rating">Rate this movie:</label>
+        <input type="range" id="rating" name="rating" min="0" max="10" step="0.5" [(ngModel)]="rating">
+        <button (click)="postRating()">Submit Rating</button>
+    </div>
+
 </div>
