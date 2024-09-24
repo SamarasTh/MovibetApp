@@ -27,5 +27,18 @@ export class MovieService {
         return this.http.get<DialogData>(`${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`);
     }
 
+    generateGuestSession(): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}/authentication/guest_session/new?api_key=${this.apiKey}`);
+    }
+
+    rateMovie(movieId: number, rating: number, guestSessionId: string): Observable<any> {
+        const body = {
+            value: rating
+        };
+        return this.http.post<any>(`${this.apiUrl}/movie/${movieId}/rating?api_key=${this.apiKey}&guest_session_id=${guestSessionId}`, body);
+    }
+
+
+
 
 }
