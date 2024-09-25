@@ -21,6 +21,12 @@ export interface DialogData {
     revenue: number,
     vote_average: number,
     vote_count: number,
-    spoken_languages: string[]
+    spoken_languages: Language[]
     id?: number; // added as optional to have access on it when posting a rating
+}
+
+export interface Language {
+    english_name: string;
+    iso_639_1: string;
+    name: string;
 }
