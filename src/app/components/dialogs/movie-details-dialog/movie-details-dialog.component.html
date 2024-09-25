@@ -34,24 +34,24 @@
             </div>
         </div>
 
-        <div class="spoken-languages">
-            <strong>Spoken Languages:</strong>
-            <span>
-                {{ movie.spoken_languages }},</span>
+        <div class="spoken-languages" *ngFor="let language of movie.spoken_languages">
+            <span>Spoken Languages:</span>
+            <strong>
+                {{ language.name }}</strong> -
         </div>
     </div>
 
     <div class="rating-container">
         <label for="rating">Rate this movie:</label>
-    
+
         <div class="rating-preview">Your Rating: <strong>{{ rating }}</strong>/10</div>
-    
+
         <input type="range" id="rating" name="rating" min="0" max="10" step="1" [(ngModel)]="rating">
-    
+
         <div class="slider-labels">
             <span *ngFor="let num of ratingNumbers">{{ num }}</span>
         </div>
-    
+
         <button (click)="postRating()">Submit Rating</button>
     </div>
 
