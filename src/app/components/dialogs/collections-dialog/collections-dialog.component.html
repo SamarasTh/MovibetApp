@@ -1,7 +1,7 @@
 <div mat-dialog-content class="collections-container">
 
     <div class="no-collections">Create a collection first</div>
-    <ul *ngIf="collections.length > 0; else noCollections">
+    <ul *ngIf="collections.length > 0">
         <li *ngFor="let collection of collections" (click)="selectCollection(collection)">
             <h4>{{ collection.title }}</h4>
             <p>{{ collection.description }}</p>
