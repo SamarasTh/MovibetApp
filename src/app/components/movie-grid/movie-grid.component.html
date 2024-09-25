@@ -1,21 +1,21 @@
 <ng-container *ngIf="movies?.length && movies.length > 0">
-
-    <mat-paginator [length]="totalResults" (page)="onPageChange($event)"></mat-paginator>
-
-    <div class="movie-grid">
-        <mat-card *ngFor="let movie of movies" class="movie-card">
-            <mat-card-actions>
-                <button mat-button mat-raised-button color="primary" (click)="toggleCollections(movie.id)">Add to
-                    Collection</button>
-            </mat-card-actions>
-            <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}"
-                (click)="toggleMovieDetails(movie.id)" />
-            <mat-card-content>
-                <h4>{{ movie.title }}</h4>
-                <p>Rating: {{ movie.vote_average | keepOneDigit }}</p>
-            </mat-card-content>
-
-        </mat-card>
-    </div>
-
+        
+        <mat-paginator [length]="totalResults" (page)="onPageChange($event)"></mat-paginator>
+        
+        <div class="movie-grid " >
+            <mat-card *ngFor="let movie of movies" class="movie-card animate__animated animate__flipInY ">
+                <mat-card-actions>
+                    <button mat-button mat-raised-button color="primary" (click)="toggleCollections(movie.id)">Add to
+                        Collection</button>
+                    </mat-card-actions>
+                    <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}"
+                    (click)="toggleMovieDetails(movie.id)" />
+                    <mat-card-content>
+                        <h4>{{ movie.title }}</h4>
+                        <p>Rating: {{ movie.vote_average | keepOneDigit }}</p>
+                    </mat-card-content>
+                    
+                </mat-card>
+            </div>
+            
 </ng-container>
