@@ -14,7 +14,7 @@
       required 
       minlength="3" 
       pattern="[a-zA-Z0-9 ]*" 
-      (keyup)="onSearch(searchQuery)"
+     (keyup)="onSearch(searchQuery, searchInput)" 
       #searchInput="ngModel"
       />
 
@@ -22,7 +22,7 @@
           <mat-icon>close</mat-icon>
         </button>
 
-        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch(searchQuery)" [disabled]="searchInput.invalid">
+        <button matIconSuffix mat-icon-button color="primary" (click)="onSearch(searchQuery,searchInput)" [disabled]="searchInput.invalid">
           <mat-icon>search</mat-icon>
         </button>
 
