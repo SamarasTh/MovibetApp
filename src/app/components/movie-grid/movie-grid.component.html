@@ -4,11 +4,16 @@
 
     <div class="movie-grid">
         <mat-card *ngFor="let movie of movies" class="movie-card" (click)="toggleMovieDetails(movie.id)">
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="addMovieToCollection($event, movie)">Add to
+                    Collection</button>
+            </mat-card-actions>
             <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
             <mat-card-content>
-                <h3>{{ movie.title }}</h3>
+                <h4>{{ movie.title }}</h4>
                 <p>Rating: {{ movie.vote_average | keepOneDigit }}</p>
             </mat-card-content>
+
         </mat-card>
     </div>
 
