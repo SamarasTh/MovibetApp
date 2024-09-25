@@ -60,7 +60,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .movie-ratings {
@@ -71,7 +71,7 @@
 
 .spoken-languages {
     margin-top: 20px;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .spoken-languages span {
@@ -82,7 +82,7 @@ strong {
     color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .movie-details-container {
         padding: 15px;
         max-width: 100%;
