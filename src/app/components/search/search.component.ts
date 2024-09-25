@@ -54,9 +54,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   onSearch(newQuery: string, searchInput: any): void {
-    if (newQuery.length < 3) return;
     // Mark the input as touched to trigger validation
     searchInput.control.markAsTouched();  
+    if (newQuery.length < 3) return;
 
     this.searchMovies(this.searchQuery, this.page);
 
