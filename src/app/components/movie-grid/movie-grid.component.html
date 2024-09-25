@@ -3,12 +3,13 @@
     <mat-paginator [length]="totalResults" (page)="onPageChange($event)"></mat-paginator>
 
     <div class="movie-grid">
-        <mat-card *ngFor="let movie of movies" class="movie-card" (click)="toggleMovieDetails(movie.id)">
+        <mat-card *ngFor="let movie of movies" class="movie-card">
             <mat-card-actions>
-                <button mat-raised-button color="primary" (click)="addMovieToCollection($event, movie)">Add to
+                <button mat-button mat-raised-button color="primary" (click)="toggleCollections(movie.id)">Add to
                     Collection</button>
             </mat-card-actions>
-            <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}" />
+            <img mat-card-image [src]="getImageUrl(movie.poster_path)" alt="{{ movie.title }}"
+                (click)="toggleMovieDetails(movie.id)" />
             <mat-card-content>
                 <h4>{{ movie.title }}</h4>
                 <p>Rating: {{ movie.vote_average | keepOneDigit }}</p>

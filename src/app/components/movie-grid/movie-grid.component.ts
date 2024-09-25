@@ -1,7 +1,6 @@
 import { Subject, takeUntil } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatButton } from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -10,7 +9,6 @@ import { MovieService } from '../../service/movie.service';
 import { DialogService } from '../../service/dialog.service';
 import { KeepOneDigitPipe } from '../../pipe/keepOneDigit.pipe';
 import { Movie, MovieApiResponse } from '../../model/movie.model';
-import { CollectionsDialogComponent } from '../dialogs/collections-dialog/collections-dialog.component';
 
 @Component({
   selector: 'app-movie-grid',
@@ -37,7 +35,6 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
-    private dialog: MatDialog,
     private movieService: MovieService,
     private dialogService: DialogService) { }
 
@@ -62,7 +59,7 @@ export class MovieGridComponent implements OnInit, OnDestroy {
   }
 
   toggleMovieDetails(movieId: number): void {
-    this.dialogService.openMovieDetailsDialog(movieId)
+    this.dialogService.openMovieDetailsDialog(movieId);
   }
 
   fetchNextPage() {
@@ -84,18 +81,9 @@ export class MovieGridComponent implements OnInit, OnDestroy {
     this.currentPage = event.pageIndex + 1;
   }
 
-  addMovieToCollection(event: MouseEvent, movie: any): void {
-    event.stopPropagation(); //TODO find something better than this.
-
-    const dialogRef = this.dialog.open(CollectionsDialogComponent, {
-      width: '300px',
-      height: 'auto',
-      data: { movie }
-    });
-
-
+  toggleCollections(movieId: number): void {
+    this.dialogService.openCollectionsDialog(movieId);
   }
-
 
   ngOnDestroy(): void {
     this.destroy$.next();
