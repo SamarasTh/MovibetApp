@@ -25,7 +25,8 @@ import { ActivatedRoute, Router } from '@angular/router';
     MovieGridComponent,
   ],
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  
 })
 export class SearchComponent implements OnInit, OnDestroy {
   moviesApiResponse?: MovieApiResponse;
@@ -49,18 +50,13 @@ export class SearchComponent implements OnInit, OnDestroy {
       this.searchQuery = params['query'] || '';
       this.page = params['page'] ? +params['page'] : 1;
 
-
-      if (this.searchQuery) {
-        this.searchMovies(this.searchQuery, this.page);
-      }
     });
   }
 
   onSearch(newQuery: string): void {
-    if (newQuery.length < 3) {
-      return;
-    }
 
+    if (newQuery.length < 3) return;
+    this.searchMovies(this.searchQuery, this.page);
 
     this.router.navigate([], {
       queryParams: { query: newQuery, page: 1 }
