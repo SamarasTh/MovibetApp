@@ -1,8 +1,16 @@
 <div class="collections-container">
-    <h2 >My Collections</h2>
+    <header>
+
+        <button matIconPrefix mat-icon-button aria-label="Clear" (click)="goHome()">
+            <mat-icon>home</mat-icon>
+        </button>
+        <h2>My Collections</h2>
+    </header>
     <!-- TODO add creation func -->
     <button mat-raised-button>Create New Collection</button>
-    <div *ngIf="collections.length === 0"><p>No collections found.</p></div>
+    <div *ngIf="collections.length === 0">
+        <p>No collections found.</p>
+    </div>
     <ul>
         <!-- TODO toggle Collection on click -->
         <li *ngFor="let collection of collections">

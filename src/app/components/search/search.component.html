@@ -1,5 +1,14 @@
 <header>
   <div class="search-container">
+        <div class="header-btns">
+          <button matIconPrefix mat-icon-button aria-label="Clear" (click)="resetSearch()">
+            <mat-icon>home</mat-icon>
+          </button>
+        
+          <button matIconPrefix mat-icon-button aria-label="Clear" (click)="navigateToCollections()">
+            <mat-icon>collections</mat-icon>
+          </button>
+        </div>
     <mat-form-field appearance="outline">
       <mat-label>Feeling like watching something?</mat-label>
       <input 
@@ -26,15 +35,7 @@
         <mat-error *ngIf="searchInput.errors?.['pattern']">Invalid characters. Only alphanumeric characters allowed.</mat-error>
     </mat-form-field>
     
-    <div class="header-btns">
-      <button matIconPrefix mat-icon-button aria-label="Clear" (click)="resetSearch()">
-        <mat-icon>home</mat-icon>
-      </button>
-    
-      <button matIconPrefix mat-icon-button aria-label="Clear" (click)="navigateToCollections()">
-        <mat-icon>collections</mat-icon>
-      </button>
-    </div>
+
   </div>
 
 </header>
