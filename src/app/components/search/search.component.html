@@ -1,14 +1,15 @@
 <header>
+  <div class="header-btns">
+    <button matIconPrefix mat-icon-button aria-label="Clear" (click)="resetSearch()">
+      <mat-icon>home</mat-icon>
+    </button>
+  
+    <button matIconPrefix mat-icon-button aria-label="Clear" (click)="navigateToCollections()">
+      <mat-icon>collections</mat-icon>
+    </button>
+  </div>
   <div class="search-container">
-        <div class="header-btns">
-          <button matIconPrefix mat-icon-button aria-label="Clear" (click)="resetSearch()">
-            <mat-icon>home</mat-icon>
-          </button>
         
-          <button matIconPrefix mat-icon-button aria-label="Clear" (click)="navigateToCollections()">
-            <mat-icon>collections</mat-icon>
-          </button>
-        </div>
     <mat-form-field appearance="outline">
       <mat-label>Feeling like watching something?</mat-label>
       <input 
