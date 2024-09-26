@@ -83,6 +83,10 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.router.navigate(['/search']);
   }
 
+  navigateToCollections(){
+    this.router.navigate(['/collections']);
+  }
+
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();

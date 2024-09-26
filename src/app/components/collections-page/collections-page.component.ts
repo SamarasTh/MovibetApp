@@ -19,6 +19,5 @@ export class CollectionsPageComponent {
   }
 
   loadCollections() {
-
   }
 }
