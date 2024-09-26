@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './collections-page.component.scss'
 })
 export class CollectionsPageComponent {
+  collections: any[] = [];
 
+  constructor() { }
+
+  ngOnInit(): void {
+    this.loadCollections();
+  }
+
+  loadCollections() {
+
+  }
 }
