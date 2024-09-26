@@ -1,14 +1,17 @@
 <div mat-dialog-content class="collections-container">
+    <div class="no-collections" *ngIf="collections.length === 0">
+        Create a collection first
+    </div>
 
-    <div class="no-collections">Create a collection first</div>
-    <ul *ngIf="collections.length > 0">
-        <li *ngFor="let collection of collections" (click)="selectCollection(collection)">
-            <h4>{{ collection.title }}</h4>
-            <p>{{ collection.description }}</p>
-        </li>
-    </ul>
-    
+    <mat-list *ngIf="collections.length > 0">
+        <h4 mat-subheader>Select a Collection:</h4>
+        <mat-list-item *ngFor="let collection of collections" (click)="selectCollection(collection)">
+            <h4 matLine>{{ collection.title }}</h4>
+            <p matLine>{{ collection.description }}</p>
+        </mat-list-item>
+    </mat-list>
+
     <div class="actions">
-        <button mat-raised-button color="primary" mat-button (click)="cancelDialog()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="cancelDialog()">Cancel</button>
     </div>
 </div>
