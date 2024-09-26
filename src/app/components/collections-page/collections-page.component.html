@@ -1,21 +1,25 @@
 <div class="collections-container">
     <header>
-
         <button matIconPrefix mat-icon-button aria-label="Clear" (click)="goHome()">
             <mat-icon>home</mat-icon>
         </button>
         <h2>My Collections</h2>
     </header>
-    <!-- TODO add creation func -->
-    <button mat-raised-button>Create New Collection</button>
-    <div *ngIf="collections.length === 0">
-        <p>No collections found.</p>
+    <button mat-raised-button (click)="navigateToCreateCollectionPage()">Create New Collection</button>
+
+    <div class="collection-grid ">
+        <mat-card *ngFor="let collection of collections" class="collection-card animate__animated animate__flipInY ">
+
+            <mat-card-content>
+                <button mat-button mat-raised-button color="primary" (click)="toggleCollection(collection?.title)">See
+                    Collection</button>
+                <h3>{{ collection?.title }}</h3>
+                <p>{{ collection?.description }}</p>
+            </mat-card-content>
+
+        </mat-card>
     </div>
-    <ul>
-        <!-- TODO toggle Collection on click -->
-        <li *ngFor="let collection of collections">
-            <h3>{{ collection.title }}</h3>
-            <p>{{ collection.description }}</p>
-        </li>
-    </ul>
+    <ng-container *ngIf="collections.length === 0">
+        <p>No collections found.</p>
+    </ng-container>
 </div>

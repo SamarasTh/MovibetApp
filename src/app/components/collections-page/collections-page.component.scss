@@ -17,3 +17,34 @@
         color: white;
     }
 }
+
+.collection-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    .mat-mdc-card-actions {
+        justify-content: center;
+    }
+
+    .collection-card {
+        margin: 10px;
+        width: 300px;
+        height: auto;
+
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: auto;
+            padding-bottom: 10px;
+            cursor: pointer;
+        }
+
+        h3,
+        p {
+            color: white;
+        }
+    }
+}
